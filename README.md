@@ -10,7 +10,6 @@ This is a food delivery web application built using HTML, CSS, JavaScript, JDBC,
 ## Features:
 - Place food orders
 - View order status
-- Admin management of orders
 - User-friendly interface
 
 ---
