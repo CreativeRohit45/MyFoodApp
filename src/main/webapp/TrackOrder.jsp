@@ -116,20 +116,6 @@
 		    padding: 1rem;
 		}
 		
-		.progress-track {
-		    height: 6px;
-		    background-color: var(--border-color);
-		    border-radius: 3px;
-		    overflow: hidden;
-		    position: relative;
-		}
-		
-		.progress-fill {
-		    height: 100%;
-		    background: var(--progress-gradient);
-		    transition: width 0.5s ease;
-		}
-
 		.steps {
 		    display: grid;
 		    grid-template-columns: repeat(4, 1fr);
@@ -329,9 +315,6 @@
             
 
             <div class="progress-container">
-			    <div class="progress-track">
-			        <div class="progress-fill" id="progress"></div>
-			    </div>
 			    <div class="steps">
 			        <div class="step" id="step1">
 			            <div class="step-icon">
@@ -469,7 +452,6 @@
     document.addEventListener('DOMContentLoaded', () => {
         const orderStatus = "<%= orderStatus %>"; 
         const steps = document.querySelectorAll('.step');
-        const progress = document.getElementById('progress');
 
         const orderPlacedTime = "<%= formatTime(orderPlacedTime) %>";
         const preparingTime = "<%= formatTime(preparingTime) %>";
@@ -484,22 +466,6 @@
         };
 
         const currentStep = statusSteps[orderStatus] || 0;
-
-        if (progress) {
-            const progressWidth = (currentStep / (steps.length - 1)) * 100;
-            
-            console.log("Progress Width:", progressWidth); 
-
-            progress.style.width = `${progressWidth}%`;
-            progress.style.setProperty("width", `${progressWidth}%`, "important");
-            console.log(progress.style.width); 
-            const computedStyle = window.getComputedStyle(progress);
-            console.log(computedStyle.width); 
-            console.log(progress);  
-
-        } else {
-            console.log("Progress element not found");
-        }
 
         steps.forEach((step, index) => {
             const time = step.querySelector('.time');
