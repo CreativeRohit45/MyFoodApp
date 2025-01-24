@@ -27,7 +27,7 @@
             padding: 30px;
             animation: fadeInBody 1s ease-out;
             overflow-y: auto;
-            max-height: 90vh;
+            max-height: 95vh;
         }
 
         .left-section {

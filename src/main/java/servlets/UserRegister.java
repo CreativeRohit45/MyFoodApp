@@ -31,7 +31,10 @@ public class UserRegister extends HttpServlet {
         if (userEmail.equals(email)) {
         	 response.sendRedirect("SignUp.jsp?error=emailExists");
         } else {
-        	user.insertUser(u);
+        	int res = user.insertUser(u);
+        	if(res==0) {
+        		System.out.println("User Not Inserted");
+        	}
         	User u1 = user.getEmailPassword(email,password);
         	HttpSession session = request.getSession();
         	

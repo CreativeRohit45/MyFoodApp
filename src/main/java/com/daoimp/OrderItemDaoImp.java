@@ -35,7 +35,7 @@ public class OrderItemDaoImp implements OrderItemDao {
 	@Override
 	public List<OrderItem> getAllOrderItemsByOrderId(int orderId){
 		List<OrderItem> orderItemList = new ArrayList<>();
-		String query = "SELECT * FROM `OrderItem` where orderId = ?";
+		String query = "SELECT * FROM `orderitem` where orderId = ?";
 		Connection con = DBConnection.connect();
 		PreparedStatement ps = null;
 		ResultSet rs = null;

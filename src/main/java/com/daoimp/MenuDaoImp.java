@@ -46,7 +46,7 @@ public class MenuDaoImp implements MenuDao {
 	
 	@Override
     public Menu getMenuItem(int menuId) {
-        String query = "SELECT * FROM menu WHERE menuId = ?";
+        String query = "SELECT * FROM `menu` WHERE menuId = ?";
         Connection con = DBConnection.connect();
         PreparedStatement ps = null;
         ResultSet rs = null;

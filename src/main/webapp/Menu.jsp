@@ -76,6 +76,7 @@
 				        <% if (isAvailable) { %>
 				            <form action="<%= (user == null) ? "Login.jsp" : "AddToCart" %>" method="post">
 							    <input type="hidden" name="itemId" value="<%= item.getMenuId() %>">
+							    <input type="hidden" name="resId" value="<%= restaurantId %>">
 							    <input type="hidden" name="returnUrl" value="<%= request.getContextPath() %>/GetMenu?resId=<%= restaurantId %>">
 							    <% if (user == null) { %>
 							        <button type="submit" class="add-to-cart-btn">Add to Cart</button>

@@ -213,6 +213,7 @@
                     <div class="cart-item-quantity">
 					    <form action="AddToCart" method="post" style="display: inline;">
 						    <input type="hidden" name="itemId" value="<%= item.getMenuId() %>">
+						    <input type="hidden" name="resId" value="<%= item.getResId() %>">
 						    <input type="hidden" name="action" value="decrease">
 						    <input type="hidden" name="returnUrl" value="<%= request.getRequestURI()%>">
 						    <button type="submit">-</button>
@@ -222,6 +223,7 @@
 						
 						<form action="AddToCart" method="post" style="display: inline;">
 						    <input type="hidden" name="itemId" value="<%= item.getMenuId() %>">
+						    <input type="hidden" name="resId" value="<%= item.getResId() %>">
 						    <input type="hidden" name="action" value="increase">
 						    <input type="hidden" name="returnUrl" value="<%= request.getRequestURI()%>">
 						    <button type="submit">+</button>

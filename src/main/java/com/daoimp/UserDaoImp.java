@@ -15,7 +15,7 @@ public class UserDaoImp implements UserDao {
 
 	@Override
 	public int insertUser(User user) {
-		String query = "INSERT INTO `User` (username, password, email, address) VALUES (?, ?, ?, ?)";
+		String query = "INSERT INTO `user` (username, password, email, address) VALUES (?, ?, ?, ?)";
 		Connection con = DBConnection.connect();
 		PreparedStatement ps = null;
 		try{
@@ -36,7 +36,7 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<>();
-		String query = "SELECT * FROM `User`";
+		String query = "SELECT * FROM `user`";
 		Connection con = DBConnection.connect();
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -57,7 +57,7 @@ public class UserDaoImp implements UserDao {
 
 	@Override
 	public User getOneUser(int userId) {
-		String query = "SELECT * FROM `User` WHERE userId = ?";
+		String query = "SELECT * FROM `user` WHERE userId = ?";
 		Connection con = DBConnection.connect();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -84,7 +84,7 @@ public class UserDaoImp implements UserDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try{
-			String query = "SELECT * FROM `User` WHERE email=? AND password=?";
+			String query = "SELECT * FROM `user` WHERE email=? AND password=?";
 			ps = con.prepareStatement(query);
 			ps.setString(1, email);
 			ps.setString(2, password);
@@ -107,7 +107,7 @@ public class UserDaoImp implements UserDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try{
-			String query="SELECT * FROM `User` WHERE email=?";
+			String query="SELECT * FROM `user` WHERE email=?";
 			ps = con.prepareStatement(query);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -124,7 +124,7 @@ public class UserDaoImp implements UserDao {
 	}
 	
 	public boolean updatePassword(String email, String newPassword) {
-		String query = "UPDATE `User` SET password = ? WHERE email = ?";
+		String query = "UPDATE `user` SET password = ? WHERE email = ?";
 		Connection con = DBConnection.connect();
 		PreparedStatement ps = null;
 		boolean isUpdated = false;
@@ -146,7 +146,7 @@ public class UserDaoImp implements UserDao {
 	
 	@Override
 	public void updateAddress(int userId, String address, String phoneNumber) {
-		String query = "UPDATE `User` SET address = ?, phone = ? WHERE userId = ?";
+		String query = "UPDATE `user` SET address = ?, phone = ? WHERE userId = ?";
 		Connection con = DBConnection.connect();
 		PreparedStatement ps = null;
 		try{
